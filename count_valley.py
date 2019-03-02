@@ -34,18 +34,16 @@ import sys
 def countingValleys(n, s):
     count = 0
     l = s[:]
-    temp = []
+    temp = 0
     for i in range(n):
         if(l[i] == 'U'):
-            temp.append(-1)
+            temp = temp - 1
         else:
-            temp.append(1)
+            temp = temp + 1
 
         if (i % 2 != 0):
-            if(sum(temp) == 0):
-                if (temp[0]==1):
+            if(temp == 0 and l[i] == 'U'):
                     count = count + 1
-                temp = []
 
     return count
 
